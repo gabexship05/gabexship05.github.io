@@ -3,10 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+    <title>My AI Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is my very first website. I am coding this in HTML without installing any software!</p>
+    <nav class="navbar">
+        <div class="logo">Portfolio.</div>
+        <ul class="nav-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">AI Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero section hidden">
+        <h1>Hello, I'm <span class="highlight">Gabriel</span></h1>
+        <p>I build intelligent solutions and explore the frontiers of Artificial Intelligence.</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </header>
+
+    <section id="about" class="section hidden">
+        <h2>A Little About Me</h2>
+        <p>I am a passionate developer with a strong focus on AI and machine learning. I love turning complex data into actionable insights and building web applications that integrate smart technologies. When I'm not coding, I'm usually reading up on the latest tech trends.</p>
+    </section>
+
+    <section id="projects" class="section hidden">
+        <h2>AI Projects</h2>
+        <div class="project-grid">
+            <div class="card">
+                <h3>Machine Learning Model</h3>
+                <p>A predictive model built to analyze large datasets and forecast trends with high accuracy.</p>
+            </div>
+            <div class="card">
+                <h3>NLP Chatbot</h3>
+                <p>An intelligent virtual assistant capable of understanding context and providing human-like responses.</p>
+            </div>
+            <div class="card">
+                <h3>Computer Vision App</h3>
+                <p>An application that uses object detection to identify and classify images in real-time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section hidden">
+        <h2>Get In Touch</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2026 Gabriel. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
