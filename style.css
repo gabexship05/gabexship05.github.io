@@ -89,15 +89,30 @@ h2 {
     gap: 2rem;
 }
 
+/* Typewriter Cursor */
+.cursor {
+    color: var(--primary-color);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Upgraded Card Hover */
 .card {
     background-color: var(--card-bg);
     padding: 2rem;
     border-radius: 10px;
-    transition: transform 0.3s ease;
+    border: 1px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25); /* Adds a soft blue glow */
+    border: 1px solid var(--primary-color);
 }
 
 /* Contact Form */
