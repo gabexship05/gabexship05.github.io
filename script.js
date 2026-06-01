@@ -19,16 +19,32 @@ const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach(el => observer.observe(el));
 
 
-// 2. Contact Form Handling
+// Professional Contact Form Handling (Formspree AJAX)
 const contactForm = document.getElementById('contact-form');
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevents the page from reloading
+contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault(); // Prevents the default page redirect
     
-    // In a real scenario, you would send this data to a server here.
-    // For now, we will simulate a successful send.
-    alert('Thank you for reaching out! I will get back to you soon.');
-    contactForm.reset();
+    const data = new FormData(contactForm);
+    
+    try {
+        const response = await fetch(contactForm.action, {
+            method: contactForm.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            alert('Thank you for reaching out! I will get back to you soon.');
+            contactForm.reset();
+        } else {
+            alert('Oops! There was a problem submitting your form. Please check your details and try again.');
+        }
+    } catch (error) {
+        alert('Oops! There was a network error. Please try again later.');
+    }
 });
 
 // Upgraded Typewriter Effect (Cycling Words)
