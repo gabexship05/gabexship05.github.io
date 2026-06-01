@@ -30,3 +30,19 @@ contactForm.addEventListener('submit', function(e) {
     alert('Thank you for reaching out! I will get back to you soon.');
     contactForm.reset();
 });
+
+// Typewriter Effect
+const textToType = "Gabriel";
+const typewriterElement = document.getElementById('typewriter');
+let typeIndex = 0;
+
+function typeWriter() {
+    if (typeIndex < textToType.length) {
+        typewriterElement.innerHTML += textToType.charAt(typeIndex);
+        typeIndex++;
+        setTimeout(typeWriter, 150); // Adjust this number (150) to change the typing speed
+    }
+}
+
+// Start the animation when the page loads
+window.addEventListener('load', typeWriter);
