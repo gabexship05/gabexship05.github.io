@@ -161,3 +161,30 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Gradient Text & New Typography */
+.gradient-fade {
+    background: linear-gradient(90deg, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.mt-4 { margin-top: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-neutral-300 { color: #d4d4d8; }
+
+/* Simple link button for the projects */
+.btn-small {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.btn-small:hover {
+    color: #a855f7;
+    text-decoration: underline;
+}
