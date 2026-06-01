@@ -31,18 +31,57 @@ contactForm.addEventListener('submit', function(e) {
     contactForm.reset();
 });
 
-// Typewriter Effect
-const textToType = "Gabriel";
-const typewriterElement = document.getElementById('typewriter');
-let typeIndex = 0;
+// Upgraded Typewriter Effect (Cycling Words)
+const words = [
+    "Cybersecurity Analyst",
+    "Web Developer",
+    "Electronics Technician", 
+    "Music Addicted",
+    "Professional GOOGLE Searcher"
+];
 
-function typeWriter() {
-    if (typeIndex < textToType.length) {
-        typewriterElement.innerHTML += textToType.charAt(typeIndex);
-        typeIndex++;
-        setTimeout(typeWriter, 150); // Adjust this number (150) to change the typing speed
+let i = 0;
+let j = 0;
+let currentWord = "";
+let isDeleting = false;
+const typeElement = document.getElementById("typewriter");
+
+function type() {
+    currentWord = words[i];
+    
+    if (isDeleting) {
+        // Delete a letter
+        typeElement.textContent = currentWord.substring(0, j - 1);
+        j--;
+    } else {
+        // Type a letter
+        typeElement.textContent = currentWord.substring(0, j + 1);
+        j++;
     }
+
+    // Determine speed based on your previous React settings
+    let typeSpeed = 70; // typingSpeed
+    if (isDeleting) {
+        typeSpeed = 40; // deletingSpeed
+    }
+
+    // Word is fully typed
+    if (!isDeleting && j === currentWord.length) {
+        typeSpeed = 900; // pauseTime
+        isDeleting = true;
+    } 
+    // Word is fully deleted
+    else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i++;
+        // Loop back to the start of the array
+        if (i === words.length) {
+            i = 0;
+        }
+    }
+
+    setTimeout(type, typeSpeed);
 }
 
 // Start the animation when the page loads
-window.addEventListener('load', typeWriter);
+window.addEventListener('load', type);
